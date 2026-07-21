@@ -51,3 +51,10 @@ for i in range(3):
 Phi = sp.Matrix(list(F) + Yp)
 assert sp.expand(Phi.jacobian(list(X)+list(Y)).det()) == 1
 print("Poisson endomorphism of C^6 certified: bracket-preserving, det = 1.")
+
+# Contact corollary: Phi preserves the Liouville form lambda = sum y_i dx_i exactly,
+# i.e. J^T (N^T y) = y, equivalent to (NJ)^T = I. Hence the contactization
+# (x, y, z) |-> (F, N^T y, z) of C^7 preserves alpha = dz - lambda on the nose.
+_liouville = sp.expand(J.T * (N.T * sp.Matrix(Y)) - sp.Matrix(Y))
+assert _liouville == sp.zeros(3, 1), _liouville
+print("Contact certificate: Phi^* lambda = lambda (Liouville form preserved exactly).")

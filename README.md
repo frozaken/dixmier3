@@ -1,4 +1,7 @@
-# An explicit counterexample to the Dixmier conjecture for the third Weyl algebra
+# Symplectic, Poisson, and contact Keller counterexamples from Alpöge's map
+
+(Formerly titled around the Dixmier consequence alone; retitled July 22 after
+learning of Pickhardt's independent July 19 note on that transfer.)
 
 Marcus Teller, July 2026. Live page: https://frozaken.github.io/dixmier3/
 
@@ -14,7 +17,10 @@ An independent note by Pickhardt and an AI research agent (dated July 19, 2026,
 omniscienceproject.com) carries out the same transfer; the Lean certification and
 the Poisson/symplectic corollaries appear only here.
 
-## Contents
+## Contents (updated July 22)
+
+- `rigidity/` — the formal-rigidity computation (orders 2 to 5, two primes)
+
 
 - `index.html` — the note (open the [live page](https://frozaken.github.io/dixmier3/))
 - `main.pdf` — the full write-up with proofs
