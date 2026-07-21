@@ -33,4 +33,4 @@ arXiv posting.
 
 Prepared with substantial assistance from AI systems (Claude Fable 5, Anthropic;
 cross-checked with GPT-5.6-sol, OpenAI). All computational claims are
-machine-certified. Corrections welcome: marcumail@gmail.com
+machine-certified. Corrections welcome: marcumail (at) gmail (dot) com
