@@ -18,6 +18,7 @@ MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
   code, pre { font-family: 'SF Mono', Menlo, Consolas, monospace; font-size: 0.85em;
               background: #f5f5f2; }
   pre { padding: 0.8rem 1rem; overflow-x: auto; }
+  mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; max-width: 100%; }
   a { color: #1a4d8f; }
   .footnote { font-size: 0.85em; color: #555; border-top: 1px solid #ddd;
               margin-top: 2.5rem; padding-top: 1rem; }
@@ -51,9 +52,11 @@ witness, which is (to our knowledge) the first explicit counterexample endomorph
 any Weyl algebra since Dixmier posed the problem in 1968.</p>
 
 <p>With $u = 1 + x_1x_2$, Alp&ouml;ge's map $F = (F_1, F_2, F_3)$ is</p>
-<p>$$F_1 = u^3x_3 + x_2^2\,u\,(4+3x_1x_2),\quad
-F_2 = x_2 + 3x_1u^2x_3 + 3x_1x_2^2(4+3x_1x_2),\quad
-F_3 = 2x_1 - 3x_1^2x_2 - x_1^3x_3,$$</p>
+<p>$$\begin{aligned}
+F_1 &= u^3x_3 + x_2^2\,u\,(4+3x_1x_2), \\
+F_2 &= x_2 + 3x_1u^2x_3 + 3x_1x_2^2(4+3x_1x_2), \\
+F_3 &= 2x_1 - 3x_1^2x_2 - x_1^3x_3,
+\end{aligned}$$</p>
 <p>with $\det J = -2$ identically and the explicit collision
 $F(0,0,-\tfrac14) = F(1,-\tfrac32,\tfrac{13}{2}) = F(-1,\tfrac32,\tfrac{13}{2})
 = (-\tfrac14, 0, 0)$. Set $N = -\tfrac12\,\mathrm{adj}\,J = J^{-1}$, a matrix of
