@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>An explicit counterexample to the Dixmier conjecture for the third Weyl algebra</title>
+<script>
+MathJax = { tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] } };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha384-Wuix6BuhrWbjDBs24bXrjf4ZQ5aFeFWBuKkFekO2t8xFU0iNaLQfp2K6/1Nxveei" crossorigin="anonymous" async></script>
+<style>
+  body { max-width: 46rem; margin: 2rem auto; padding: 0 1rem;
+         font: 17px/1.55 Georgia, 'Times New Roman', serif; color: #1a1a1a; }
+  h1 { font-size: 1.5rem; line-height: 1.3; }
+  h2 { font-size: 1.15rem; margin-top: 2rem; }
+  .meta { color: #555; margin-bottom: 1.5rem; }
+  .thm { border-left: 3px solid #888; padding: 0.2rem 0 0.2rem 1rem; margin: 1rem 0; }
+  code, pre { font-family: 'SF Mono', Menlo, Consolas, monospace; font-size: 0.85em;
+              background: #f5f5f2; }
+  pre { padding: 0.8rem 1rem; overflow-x: auto; }
+  a { color: #1a4d8f; }
+  .footnote { font-size: 0.85em; color: #555; border-top: 1px solid #ddd;
+              margin-top: 2.5rem; padding-top: 1rem; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #14141a; color: #ddd; }
+    code, pre { background: #1f1f28; }
+    a { color: #7aa7e0; } .meta, .footnote { color: #999; }
+  }
+</style>
+</head>
+<body>
+
+<h1>An explicit counterexample to the Dixmier conjecture for the third Weyl algebra</h1>
+<p class="meta">Marcus Teller &middot; July 21, 2026 &middot;
+<a href="main.pdf">PDF</a> &middot;
+<a href="ancillary_check.py">sympy certificate</a> &middot;
+<a href="lean/">Lean proofs</a><br>
+<em>Prepared with substantial assistance from AI systems (Claude Fable&nbsp;5, Anthropic;
+cross-checked with GPT-5.6-sol, OpenAI). All computational claims are machine-certified;
+see below.</em></p>
+
+<h2>1. What this is</h2>
+
+<p>Alp&ouml;ge's counterexample to the Jacobian conjecture in dimension three
+(<a href="https://x.com/__alpoge__/status/2079028340955197566">announced July 19, 2026</a>)
+implies, through the classical implication $\mathrm{DC}_3 \Rightarrow \mathrm{JC}_3$, that
+the Dixmier conjecture fails for the third Weyl algebra $A_3$: there exists an injective,
+non-surjective $\mathbb{C}$-algebra endomorphism of $A_3$. The existence statement is
+immediate to experts. This note supplies what the observation does not: the explicit
+witness, which is (to our knowledge) the first explicit counterexample endomorphism of
+any Weyl algebra since Dixmier posed the problem in 1968.</p>
+
+<p>With $u = 1 + x_1x_2$, Alp&ouml;ge's map $F = (F_1, F_2, F_3)$ is</p>
+<p>$$F_1 = u^3x_3 + x_2^2\,u\,(4+3x_1x_2),\quad
+F_2 = x_2 + 3x_1u^2x_3 + 3x_1x_2^2(4+3x_1x_2),\quad
+F_3 = 2x_1 - 3x_1^2x_2 - x_1^3x_3,$$</p>
+<p>with $\det J = -2$ identically and the explicit collision
+$F(0,0,-\tfrac14) = F(1,-\tfrac32,\tfrac{13}{2}) = F(-1,\tfrac32,\tfrac{13}{2})
+= (-\tfrac14, 0, 0)$. Set $N = -\tfrac12\,\mathrm{adj}\,J = J^{-1}$, a matrix of
+polynomials.</p>
+
+<div class="thm">
+<p><strong>Theorem.</strong> The assignment
+$$\varphi(\hat x_i) = F_i(\hat x_1,\hat x_2,\hat x_3), \qquad
+\varphi(\partial_i) = \sum_{k=1}^{3} N_{ki}(\hat x_1,\hat x_2,\hat x_3)\,\partial_k$$
+extends to a $\mathbb{C}$-algebra endomorphism $\varphi\colon A_3 \to A_3$ which is
+injective and not surjective. The Dixmier conjecture therefore fails for $A_n$ for every
+$n \ge 3$.</p>
+</div>
+
+<p>The lift $F \mapsto \varphi$ is classical (Bass&ndash;Connell&ndash;Wright p.&nbsp;297,
+crediting Vaserstein and Kac; van den Essen Ch.&nbsp;10; Bavula
+<a href="https://arxiv.org/abs/2112.03177">arXiv:2112.03177</a>). What is new is the
+input: until this month the recipe had no non-invertible Keller map to apply it to.
+Because the lifted operators have order at most one, no quantum corrections arise, and
+well-definedness is <em>equivalent</em> to two families of polynomial identities
+($JN = I_3$, and flatness $\sum_k (N_{ki}\partial_k N_{lj} - N_{kj}\partial_k N_{li}) = 0$).
+Non-surjectivity follows from maximal commutativity of $\mathbb{C}[\hat x]$ plus the
+collision. Full details and proofs are in the <a href="main.pdf">PDF</a>.</p>
+
+<p>As corollaries: an explicit counterexample to the Poisson conjecture $\mathrm{PC}_3$,
+and a <em>symplectic</em> Keller counterexample &mdash; the cotangent lift
+$\Phi(x,y) = (F(x),\, N(x)^{\mathsf T}y)$ on $\mathbb{C}^6$ preserves the canonical
+bracket, has $\det J\Phi = 1$ identically, and is not injective.</p>
+
+<h2>2. Certification</h2>
+
+<p>Every computational claim is certified twice, independently:</p>
+
+<ul>
+<li><strong>Computer algebra.</strong> <a href="ancillary_check.py">ancillary_check.py</a>
+(sympy, exact rational arithmetic) verifies $\det J = -2$, $JN = I_3$, the nine flatness
+identities, bracket preservation for $\Phi$, and $\det J\Phi = 1$. Run it:
+<pre>python3 ancillary_check.py
+# A_3 endomorphism relations certified.
+# Poisson endomorphism of C^6 certified: bracket-preserving, det = 1.</pre></li>
+<li><strong>Machine-checked proofs.</strong> A <a href="lean/">Lean 4 / mathlib
+development</a> proves the same identities plus the collision, with no
+<code>sorry</code> and no axioms beyond the standard three
+(<code>propext</code>, <code>Classical.choice</code>, <code>Quot.sound</code>):
+<code>alpoge_keller</code> ($\det J = -2$, entries certified as formal
+<code>pderiv</code>s), <code>alpoge_not_injective</code> (the collision),
+<code>dixmier_inverse</code>/<code>'</code>, <code>dixmier_flatness</code> (all 27
+cases), <code>det_adjugate_J</code>, and <code>poisson_det_scaled</code>. Toolchain
+pins (<code>lean4:v4.32.0</code>, mathlib <code>v4.32.0</code>) are included.</li>
+</ul>
+
+<h2>3. Remarks</h2>
+
+<p>$\mathrm{DC}_1$ and $\mathrm{DC}_2$ remain open, and
+$\mathrm{DC}_2 \Rightarrow \mathrm{JC}_2$: the two-variable Dixmier conjecture is at
+least as strong as the plane Jacobian conjecture, which survives. Zheglov
+(<a href="https://arxiv.org/abs/2410.06959">arXiv:2410.06959</a>) proposes a proof of
+$\mathrm{DC}_1$. If $\mathrm{DC}_1$ holds, no endomorphism of $A_1$ has a plane Keller
+counterexample as its classical shadow, whereas in dimension three quantization succeeds
+with no corrections. Locating the obstruction that appears only in low dimension is, we
+believe, a fruitful new question about the plane Jacobian problem.</p>
+
+<p class="footnote">An arXiv version is in preparation (endorsement pending).
+This page and its git history serve as the public record in the interim; the page is
+also archived at the Internet Archive. Corrections are very welcome:
+marcumail@gmail.com. Related: Zhang's
+<a href="https://zzhang-iu.github.io/papers/direct-consequences-jacobian/index.html">Direct
+Consequences</a> covers the Mathieu, Gaussian-moments, vanishing, and image conjecture
+casualties of the same announcement; the Dixmier and Poisson consequences here are
+complementary to that list.</p>
+
+</body>
+</html>
