@@ -10,6 +10,10 @@ of A₃, the cotangent lift of Alpöge's map. Byproducts: an explicit
 Poisson-conjecture PC₃ counterexample and a symplectic Keller counterexample on
 ℂ⁶ with Jacobian determinant identically 1.
 
+An independent note by Pickhardt and an AI research agent (dated July 19, 2026,
+omniscienceproject.com) carries out the same transfer; the Lean certification and
+the Poisson/symplectic corollaries appear only here.
+
 ## Contents
 
 - `index.html` — the note (open the [live page](https://frozaken.github.io/dixmier3/))
