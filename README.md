@@ -31,6 +31,6 @@ Code (`ancillary_check.py`, `lean/`) is Apache-2.0 (see `LICENSE`). The expositi
 (`index.html`, `main.pdf`) is © 2026 Marcus Teller, all rights reserved pending
 arXiv posting.
 
-Prepared with substantial assistance from AI systems (Claude Fable 5, Anthropic;
+Prepared with assistance from AI systems (Claude Fable 5, Anthropic;
 cross-checked with GPT-5.6-sol, OpenAI). All computational claims are
 machine-certified. Corrections welcome: marcumail (at) gmail (dot) com
